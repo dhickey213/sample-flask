@@ -1,15 +1,15 @@
-#from flask import Flask
-#from flask import render_template
+from flask import Flask
+from flask import render_template
 
-#app = Flask(__name__)
+app = Flask(__name__)
 
 
-#@app.route("/")
-#def hello_world():
+@app.route("/")
+def hello_world():
     #return render_template("index.html")
-  #  a = 2
-    
-#exit()
+    return "Hello There, Welcome To Your App!"
 
-print ('Hello There, Welcome To Your App!')
+  
+   
+
 
