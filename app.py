@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-import urllib3
+import requests
 
 app = Flask(__name__)
 
