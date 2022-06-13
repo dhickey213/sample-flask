@@ -7,8 +7,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-    output = pprint.pprint(sys.path)
-    return output
+    return sys.path
 
 
 
