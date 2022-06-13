@@ -7,12 +7,7 @@ app = Flask(__name__)
 
 pprint.pprint(sys.path)
 
-#@app.route("/")
-#def hello_world():
-    #return render_template("index.html")
- #   return "Hello There, Welcome To Your App!"
 
-  
    
 
 
