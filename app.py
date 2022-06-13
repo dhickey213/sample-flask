@@ -5,7 +5,11 @@ import pprint
 
 app = Flask(__name__)
 
-print(sys.path)
+@app.route("/", methods=['GET', 'POST'])
+def hello_world():
+    output = pprint.pprint(sys.path)
+    return output
+
 
 
    
