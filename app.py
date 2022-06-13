@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-    return sys.path
+    return "hello diana!"
 
 
 
