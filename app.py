@@ -5,7 +5,7 @@ import pprint
 
 app = Flask(__name__)
 
-pprint.pprint(sys.path)
+print(sys.path)
 
 
    
