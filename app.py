@@ -12,7 +12,7 @@ imgurls = {'url':'text'}
 def hello_world():
     data = json.loads(request.data)
     output = data['url']
-    return data
+    return output
  
 #    headers = request.headers
 #    auth = headers.get("Authorization")
