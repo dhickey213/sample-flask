@@ -5,7 +5,7 @@ import json, base64
 import urllib.request
 import requests
 
-
+app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
