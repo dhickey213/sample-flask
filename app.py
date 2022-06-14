@@ -10,7 +10,7 @@ imgurls = {'url':'text'}
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-    request = request.json()
+    request = request.json
     update = {'url': 'hello'}
     imgurls.update(update)
     return request
