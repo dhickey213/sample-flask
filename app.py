@@ -6,10 +6,12 @@ import urllib.request
 import requests
 
 app = Flask(__name__)
+imgurls = {'url':'text'}
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-    #return render_template("index.html")
+    update = {'url': request.json['url']}
+    imgurls.update(update)
     return "Hello There, Welcome To Your App!"
  
 #    headers = request.headers
