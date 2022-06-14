@@ -3,7 +3,7 @@ from flask import render_template
 from flask import jsonify, request
 import json, base64
 import urllib.request
-import requests
+import requests, request
 
 
 app = Flask(__name__)
