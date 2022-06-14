@@ -10,10 +10,10 @@ imgurls = {'url':'text'}
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-    request = request.json
+    newdictstring = request.json
     update = {'url': 'hello'}
     imgurls.update(update)
-    return request
+    return newdictstring
  
 #    headers = request.headers
 #    auth = headers.get("Authorization")
