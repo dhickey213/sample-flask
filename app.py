@@ -11,6 +11,7 @@ imgurls = {'url':'text'}
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
     data = json.loads(request.data)
+    output = data['url']
     return data
  
 #    headers = request.headers
