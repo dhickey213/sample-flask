@@ -13,7 +13,7 @@ def get_prediction(url):
     payload = {"instances":[{"image_bytes":{"b64":my_string},"key":"mykey"}]}
     jsonstring = json.dumps(payload)
     response = requests.post('https://curlpattern22-hjfqtyb23a-uc.a.run.app/v1/models/default:predict', data=jsonstring)
-    output = response.content
+    output = json.loads(response.content)
     return output
 
 @app.route("/", methods=['GET', 'POST'])
@@ -21,12 +21,10 @@ def hello_world():
     data = json.loads(request.data)
     newurl = data['url']
     output = get_prediction(newurl)
-    #labeldict = json.load(output)
-   # max_value= max(labeldict['predictions'][0]['scores'])
-   # max_index= labeldict['predictions'][0]['scores'].index(max_value)
-   # label_output= labeldict['predictions'][0]['labels'][max_index]
-    
-    return type(output)
+    max_value= max(output['predictions'][0]['scores'])
+    max_index= output['predictions'][0]['scores'].index(max_value)
+    label_output= output['predictions'][0]['labels'][max_index]   
+    return label_output
  
 #    headers = request.headers
 #    auth = headers.get("Authorization")
