@@ -25,7 +25,7 @@ def hello_world():
     max_value= max(labeldict['predictions'][0]['scores'])
     max_index= labeldict['predictions'][0]['scores'].index(max_value)
     label_output= labeldict['predictions'][0]['labels'][max_index]
-    return output
+    return label_output
  
 #    headers = request.headers
 #    auth = headers.get("Authorization")
