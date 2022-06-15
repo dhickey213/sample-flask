@@ -21,7 +21,11 @@ def hello_world():
     data = json.loads(request.data)
     newurl = data['url']
     output = get_prediction(newurl)
-    return output
+    labeldict = json.load(output)
+    max_value= max(labeldict['predictions'][0]['scores'])
+    max_index= labeldict['predictions'][0]['scores'].index(max_value)
+    label_output= labeldict['predictions'][0]['labels'][max_index]
+    return label_output
  
 #    headers = request.headers
 #    auth = headers.get("Authorization")
