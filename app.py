@@ -23,8 +23,9 @@ def hello_world():
     output = get_prediction(newurl)
     max_value= max(output['predictions'][0]['scores'])
     max_index= output['predictions'][0]['scores'].index(max_value)
-    label_output= output['predictions'][0]['labels'][max_index]   
-    return label_output
+    label_output= output['predictions'][0]['labels'][max_index]
+    final_output = jsonify({"label":label_output})
+    return final_output
  
 #    headers = request.headers
 #    auth = headers.get("Authorization")
