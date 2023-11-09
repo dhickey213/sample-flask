@@ -23,7 +23,7 @@ def hello_world():
     data = json.loads(request.data)
     starttime = data['starttime']
     endtime = data['endtime']
-    newtime = endtime-starttime
+    newtime = float(endtime)-float(starttime)
     final_output = jsonify({"timeblocklength":newtime})
     return final_output
  
