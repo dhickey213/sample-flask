@@ -24,7 +24,8 @@ def hello_world():
     starttime = data['starttime']
     endtime = data['endtime']
     newtime = float(endtime)-float(starttime)
-    final_output = jsonify({"timeblocklength":newtime})
+    minutetime = newtime/60
+    final_output = jsonify({"timeblocklength":newtime, "minutes":minutetime})
     return final_output
  
 #    headers = request.headers
