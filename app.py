@@ -23,9 +23,14 @@ def hello_world():
     data = json.loads(request.data)
     starttime = data['starttime']
     endtime = data['endtime']
-    newtime = float(endtime)-float(starttime)
-    minutetime = newtime/60
-    final_output = jsonify({"timeblocklength":newtime, "minutes":minutetime})
+    sessionduration = data['sessionduration']
+    timebtwsessions = data['timebtwsessions']
+    
+    blockduration = float(endtime)-float(starttime)
+    blockminutes = blockduration/60
+    slotnumber = blockminutes/(float(sessionduration) + float(timebtwsessions))
+    
+    final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
     return final_output
  
 #    headers = request.headers
