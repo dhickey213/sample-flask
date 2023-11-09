@@ -21,12 +21,10 @@ def get_prediction(url):
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
     data = json.loads(request.data)
-    newurl = data['url']
-    output = get_prediction(newurl)
-    max_value= max(output['predictions'][0]['scores'])
-    max_index= output['predictions'][0]['scores'].index(max_value)
-    label_output= output['predictions'][0]['labels'][max_index]
-    final_output = jsonify({"label":label_output})
+    starttime = data['starttime']
+    endtime = data['endtime']
+    newtime = endtime-starttime
+    final_output = jsonify({"timeblocklength":newtime})
     return final_output
  
 #    headers = request.headers
