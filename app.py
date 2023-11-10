@@ -36,13 +36,13 @@ def hello_world():
 
     for i in range(slotnumber):
         starttimelist.append(starttime)
-        endtimelist.append = (starttime + sessionduration)
-        starttime = (starttime + sessionduration + timebtwsessions)
+        endtimelist.append = (starttime + (sessionduration * 60))
+        starttime = (starttime + (sessionduration * 60) + (timebtwsessions * 60))
 
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
 #    final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
-    output = jsonify(timeslotdictionary)   
+    output = json.dumps(timeslotdictionary)  
     return output
  
 #    headers = request.headers
