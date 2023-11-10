@@ -34,8 +34,8 @@ def hello_world():
     starttimelist = []
     endtimelist = []
 
-    sessionduration = sessionduration * 60
-    timebtwsessions = timebtwsessions * 60
+    sessionduration = (float(sessionduration) * 60)
+    timebtwsessions = (float(timebtwsessions) * 60)
 
     for i in range(slotnumber):
         starttimelist.append(starttime)
