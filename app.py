@@ -41,9 +41,9 @@ def hello_world():
 
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
-#    final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
-    output = json.dumps(timeslotdictionary)  
-    return output
+    final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
+#    output = json.dumps(timeslotdictionary)  
+    return final_output
  
 #    headers = request.headers
 #    auth = headers.get("Authorization")
