@@ -4,7 +4,7 @@ from flask import jsonify, request
 import json, base64
 import urllib.request
 import requests
-import time
+import time, math
 import calendar
 
 app = Flask(__name__)
@@ -28,7 +28,8 @@ def hello_world():
     
     blockduration = float(endtime)-float(starttime)
     blockminutes = blockduration/60
-    slotnumber = blockminutes/(float(sessionduration) + float(timebtwsessions))
+    slotnumber = math.floor(blockminutes/(float(sessionduration) + float(timebtwsessions)))
+    
     
     final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
     return final_output
