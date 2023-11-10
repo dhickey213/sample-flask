@@ -39,7 +39,7 @@ def hello_world():
 
     for i in range(slotnumber):
         starttimelist.append(starttime)
-        endtimelist.append(starttime + sessionduration))
+        endtimelist.append(starttime + sessionduration)
         starttime = (starttime + sessionduration + timebtwsessions)
 
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
