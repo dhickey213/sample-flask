@@ -36,9 +36,11 @@ def hello_world():
 
     sessionduration = (float(sessionduration) * 60)
     timebtwsessions = (float(timebtwsessions) * 60)
+    starttime = float(starttime)
 
     for i in range(slotnumber):
         starttimelist.append(starttime)
+        endtime_entry = (starttime + sessionduration)
         endtimelist.append(starttime + sessionduration)
         starttime = (starttime + sessionduration + timebtwsessions)
 
