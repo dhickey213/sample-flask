@@ -42,7 +42,7 @@ def hello_world():
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
 #    final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
-    output = json.dumps(timeslotdictionary)   
+    output = jsonify(timeslotdictionary)   
     return output
  
 #    headers = request.headers
