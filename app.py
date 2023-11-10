@@ -29,10 +29,21 @@ def hello_world():
     blockduration = float(endtime)-float(starttime)
     blockminutes = blockduration/60
     slotnumber = math.floor(blockminutes/(float(sessionduration) + float(timebtwsessions)))
+
+    starttimelist = []
+    endtimelist = []
+    slotend = (sessionduration * 60)
+
+    for i in range(slotnumber):
+        starttimelist.append(starttime)
+        endtimelist.append = (starttime + sessionduration)
+        starttime = (starttime + sessionduration + timebtwsessions)
+
+    timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
-    
-    final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
-    return final_output
+#    final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
+    output = json.dumps(timeslotdictionary)   
+    return output
  
 #    headers = request.headers
 #    auth = headers.get("Authorization")
