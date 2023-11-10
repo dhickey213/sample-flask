@@ -43,7 +43,7 @@ def hello_world():
     
 #    final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
     output = json.dumps(timeslotdictionary)  
-    return final_output
+    return output
  
 #    headers = request.headers
 #    auth = headers.get("Authorization")
