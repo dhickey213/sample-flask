@@ -26,18 +26,21 @@ def hello_world():
     sessionduration = data['sessionduration']
     timebtwsessions = data['timebtwsessions']
     
+    
     blockduration = float(endtime)-float(starttime)
     blockminutes = blockduration/60
     slotnumber = math.floor(blockminutes/(float(sessionduration) + float(timebtwsessions)))
 
     starttimelist = []
     endtimelist = []
-    slotend = (sessionduration * 60)
+
+    sessionduration = sessionduration * 60
+    timebtwsessions = timebtwsessions * 60
 
     for i in range(slotnumber):
         starttimelist.append(starttime)
-        endtimelist.append(starttime + (sessionduration * 60))
-        starttime = (starttime + (sessionduration * 60) + (timebtwsessions * 60))
+        endtimelist.append(starttime + sessionduration))
+        starttime = (starttime + sessionduration + timebtwsessions)
 
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
