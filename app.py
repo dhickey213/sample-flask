@@ -46,9 +46,23 @@ def hello_world():
 
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
+    header = {"Authorization": "Bearer 0dq63iciffzt986lb8g5it1ek", "Content-Type": "application/json"}
+    payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": true}
+    url = "https://api.adalo.com/v0/apps/9dd54d7a-440a-494f-803f-acede8dff51e/collections/t_27kkg53ncepfrjhmjgdmmcupb"
+
+    headerjson = json.dumps(header)
+    payloadjson = json.dumps(payload)
+    response_output = requests.post(url, data = payloadjson, headers = headerjson)
+    output_me = json.loads(response.content)
+    return output_me
+
+
+
+
+    
 #    final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
-    output = json.dumps(timeslotdictionary)  
-    return output
+#    output = json.dumps(timeslotdictionary)  
+#    return output
  
 #    headers = request.headers
 #    auth = headers.get("Authorization")
