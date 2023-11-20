@@ -49,14 +49,16 @@ def hello_world():
 #   payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": true}
     url = "https://api.adalo.com/v0/apps/9dd54d7a-440a-494f-803f-acede8dff51e/collections/t_27kkg53ncepfrjhmjgdmmcupb"
     params = {"appID":"9dd54d7a-440a-494f-803f-acede8dff51e", "collectionID":"t_27kkg53ncepfrjhmjgdmmcupb"}
-    
+
+    output = []
     for key, value in timeslotdictionary.items():
         payload = {"Start Appointment": key, "End Appointment":value, "Available": "true"}
         payloadjson = json.dumps(payload)
-    #    response = requests.post(url, params=params, data = payloadjson, headers=headers)
-    #    output_me = json.loads(response.content)
-        print(payloadjson)
+    #   response = requests.post(url, params=params, data = payloadjson, headers=headers)
+    #   output_me = json.loads(response.content)
+        output.append(payloadjson)
         time.sleep(.4)
+return output
 
 
     
