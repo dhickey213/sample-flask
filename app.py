@@ -56,8 +56,9 @@ def hello_world():
         payloadjson = json.dumps(payload)
     #   response = requests.post(url, params=params, data = payloadjson, headers=headers)
     #   output_me = json.loads(response.content)
-        output.append(payloadjson)
+        output.append(payload)
         time.sleep(.4)
+print(output)
 return output
 
 
