@@ -54,10 +54,9 @@ def hello_world():
         payload = {"Start Appointment": key, "End Appointment":value, "Available": "true"}
         payloadjson = json.dumps(payload)
         time.sleep(.4)
-        response = requests.post(url, params=params, data = payloadjson, headers=headers)
+    #    response = requests.post(url, params=params, data = payloadjson, headers=headers)
         output_me = json.loads(response.content)
-        print("...working...")
-        return output_me
+        print(output_me)
 
 
     
