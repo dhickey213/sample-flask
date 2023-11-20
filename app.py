@@ -58,8 +58,8 @@ def hello_world():
     #   output_me = json.loads(response.content)
         output.append(payload)
         time.sleep(.4)
-print(output)
-return output
+    print(output)
+    return output
 
 
     
