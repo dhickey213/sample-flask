@@ -21,8 +21,8 @@ def get_prediction(url):
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
     data = json.loads(request.data)
-    starttime = data['Block Start Time'] 
-    endtime = data['Block End Time']
+    starttime = data['starttime'] 
+    endtime = data['endtime']
     sessionduration = data['sessionduration']
     timebtwsessions = data['timebtwsessions']
     
