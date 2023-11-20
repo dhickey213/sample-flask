@@ -53,7 +53,7 @@ def hello_world():
     params = json.dumps(params)
     headers = json.dumps(header)
     
-    for key, value in timeslotdictionary.dictitems():
+    for key, value in timeslotdictionary.items():
         payload = {"Start Appointment": key, "End Appointment":value, "Available": true}
         payloadjson = json.dumps(payload)
         time.sleep(.4)
