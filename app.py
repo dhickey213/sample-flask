@@ -67,7 +67,7 @@ def hello_world():
   #     output.append(payload)
         time.sleep(.4)
     print(output)
-    return output
+    return timeslotdictionary
 
 
     
