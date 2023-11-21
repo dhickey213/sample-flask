@@ -43,7 +43,7 @@ def hello_world():
         endtimelist.append(starttime + sessionduration)
         starttime = (starttime + sessionduration + timebtwsessions)
 
-    for i in range(len(starttimelist):
+    for i in range(len(starttimelist)):
         starttimelist[i] = datetime.datetime.utcfromtimestamp(int(starttimelist[i]))
         starttimelist[i] = (int(starttimelist[i])).strftime('%y-%m-%dT%h:%m:%sZ')
 
