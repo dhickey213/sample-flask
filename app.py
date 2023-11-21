@@ -47,16 +47,14 @@ def hello_world():
         starttimelist[i] = datetime.datetime.fromtimestamp(int(starttimelist[i]))
         starttimelist[i] = starttimelist[i].strftime('%y-%m-%dT%H:%M:%SZ')
         
-
     for i in range(len(endtimelist)):
         endtimelist[i] = datetime.datetime.fromtimestamp(int(endtimelist[i]))
         endtimelist[i] = endtimelist[i].strftime('%y-%m-%dT%H:%M:%SZ')
-    
         
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
     headers = {"Authorization": "Bearer 0dq63iciffzt986lb8g5it1ek", "Content-Type": "application/json"}
-#   payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": true}
+    payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": true}
     url = "https://api.adalo.com/v0/apps/9dd54d7a-440a-494f-803f-acede8dff51e/collections/t_27kkg53ncepfrjhmjgdmmcupb"
     params = {"appID":"9dd54d7a-440a-494f-803f-acede8dff51e", "collectionID":"t_27kkg53ncepfrjhmjgdmmcupb"}
 
@@ -64,11 +62,11 @@ def hello_world():
     for key, value in timeslotdictionary.items():
         payload = {"Start Appointment": key, "End Appointment":value, "Available": "true"}
         payloadjson = json.dumps(payload)
-    #   response = requests.post(url, params=params, data = payloadjson, headers=headers)
+        response = requests.post(url, params=params, data = payloadjson, headers=headers)
     #   output_me = json.loads(response.content)
-        output.append(payload)
+    #    output.append(payload)
         time.sleep(.4)
-    print(output)
+   # print(output)
     return timeslotdictionary
 
 
