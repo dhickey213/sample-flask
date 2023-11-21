@@ -65,7 +65,7 @@ def hello_world():
         response = requests.post(url, params=params, data = payloadjson, headers=headers)
         output.append(payload)
         time.sleep(.4)
-    print(response.json())
+    print(response.statuscode)
     return (timeslotdictionary)
 
 
