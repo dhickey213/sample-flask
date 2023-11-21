@@ -43,6 +43,14 @@ def hello_world():
         endtimelist.append(starttime + sessionduration)
         starttime = (starttime + sessionduration + timebtwsessions)
 
+    for i in range(len(starttimelist):
+        starttimelist[i] = datetime.datetime.utcfromtimestamp(int(starttimelist[i]))
+        starttimelist[i] = (int(starttimelist[i])).strftime('%y-%m-%dT%h:%m:%sZ')
+
+    for i in range(len(endtimelist):
+        endtimelist[i] = datetime.datetime.utcfromtimestamp(int(endtimelist[i]))
+        endtimelist[i] = (int(endtimelist[i])).strftime('%y-%m-%dT%h:%m:%sZ')
+        
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
     headers = {"Authorization": "Bearer 0dq63iciffzt986lb8g5it1ek", "Content-Type": "application/json"}
