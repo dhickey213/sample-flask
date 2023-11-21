@@ -47,7 +47,7 @@ def hello_world():
         starttimelist[i] = datetime.datetime.utcfromtimestamp(int(starttimelist[i]))
         starttimelist[i] = (int(starttimelist[i])).strftime('%y-%m-%dT%h:%m:%sZ')
 
-    for i in range(len(endtimelist):
+    for i in range(len(endtimelist)):
         endtimelist[i] = datetime.datetime.utcfromtimestamp(int(endtimelist[i]))
         endtimelist[i] = (int(endtimelist[i])).strftime('%y-%m-%dT%h:%m:%sZ')
         
