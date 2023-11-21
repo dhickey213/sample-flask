@@ -45,11 +45,11 @@ def hello_world():
 
     for i in range(len(starttimelist)):
         starttimelist[i] = datetime.datetime.fromtimestamp(int(starttimelist[i]))
-        starttimelist[i] = starttimelist[i].strftime('%y-%m-%dT%h:%m:%sZ')
+        
 
     for i in range(len(endtimelist)):
-        endtimelist[i] = datetime.datetime.fromtimestamp(int(endtimelist[i]))
-        endtimelist[i] = endtimelist[i].strftime('%y-%m-%dT%h:%m:%sZ')
+        endtimelist[i] = datetime.fromtimestamp(int(endtimelist[i]))
+    
         
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
