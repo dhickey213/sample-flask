@@ -44,11 +44,11 @@ def hello_world():
         starttime = (starttime + sessionduration + timebtwsessions)
 
     for i in range(len(starttimelist)):
-        starttimelist[i] = datetime.datetime.utcfromtimestamp(int(starttimelist[i]))
+        starttimelist[i] = datetime.datetime.fromtimestamp(int(starttimelist[i]))
         starttimelist[i] = starttimelist[i].strftime('%y-%m-%dT%h:%m:%sZ')
 
     for i in range(len(endtimelist)):
-        endtimelist[i] = datetime.datetime.utcfromtimestamp(int(endtimelist[i]))
+        endtimelist[i] = datetime.datetime.fromtimestamp(int(endtimelist[i]))
         endtimelist[i] = endtimelist[i].strftime('%y-%m-%dT%h:%m:%sZ')
         
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
