@@ -63,11 +63,11 @@ def hello_world():
         payload = {"Start Appointment": key, "End Appointment":value, "Available": "true"}
         payloadjson = json.dumps(payload)
         response = requests.post(url, params=params, data = payloadjson, headers=headers)
-    #   output_me = json.loads(response.content)
+        output_me = json.loads(response.content)
     #    output.append(payload)
         time.sleep(.4)
    # print(output)
-    return timeslotdictionary
+    return output_me
 
 
     
