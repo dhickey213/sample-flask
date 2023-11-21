@@ -20,6 +20,10 @@ def get_prediction(url):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
+    output = ("hi)
+    return output
+
+def create_appts():
     data = json.loads(request.data)
     starttime = data['starttime'] 
     endtime = data['endtime']
@@ -53,7 +57,7 @@ def hello_world():
         
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
-    headers = {"Authorization": "Bearer 0dq63iciffzt986lb8g5it1ek", "Content-Type": "application/json"}
+    headers = {"Authorization": "Bearer TOKEN", "Content-Type": "application/json"}
 #    payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": "true"}
     url = "https://api.adalo.com/v0/apps/9dd54d7a-440a-494f-803f-acede8dff51e/collections/t_27kkg53ncepfrjhmjgdmmcupb"
     params = {"appID":"9dd54d7a-440a-494f-803f-acede8dff51e", "collectionID":"t_27kkg53ncepfrjhmjgdmmcupb"}
