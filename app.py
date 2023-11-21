@@ -66,7 +66,7 @@ def hello_world():
         output.append(response.text)
         time.sleep(.4)
     print(output)
-    return (timeslotdictionary)
+    return (response.text)
 
 
     
