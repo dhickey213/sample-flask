@@ -66,7 +66,8 @@ def hello_world():
         output.append(response.text)
         time.sleep(.4)
     print(output)
-    return (response.text)
+    dammit = output[0]
+    return (dammit)
 
 
     
