@@ -48,7 +48,7 @@ def hello_world():
         
 
     for i in range(len(endtimelist)):
-        endtimelist[i] = datetime.fromtimestamp(int(endtimelist[i]))
+        endtimelist[i] = datetime.datetime.fromtimestamp(int(endtimelist[i]))
     
         
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
