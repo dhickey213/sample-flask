@@ -21,14 +21,12 @@ def get_prediction(url):
     return output
 
 @app.route("/", methods=['GET', 'POST'])
-def hello_world():
-    url = f'https://slate.com/news-and-politics/2023/11/cheetah-mating-terrorism-west-africa-counterterrorism-what.html'
+def hello_world(url):
     page = requests.get(url)
     doc = page.content
     soup = BeautifulSoup(doc, 'lxml')
     title = soup.find("meta", property="og:title")
     image = soup.find("meta", property="og:image")
-    
     return(title)
 
 def create_appts():
