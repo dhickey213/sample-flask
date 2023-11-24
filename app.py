@@ -21,7 +21,7 @@ def get_prediction(url):
     return output
 
 @app.route("/", methods=['GET', 'POST'])
-def hello_world():
+def hello_world(url):
     url2 = f'https://slate.com/technology/2023/11/google-antitrust-search-monopoly-apple.html?pay=1700868262192&support_journalism=please'
     page = requests.get(url2)
     doc = page.content
