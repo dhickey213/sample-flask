@@ -28,8 +28,8 @@ def hello_world():
     soup = BeautifulSoup(doc, 'lxml')
     title = soup.find("meta", property="og:title")
     image = soup.find("meta", property="og:image")
-    returndic = {title:image}
-    return(returndic)
+    
+    return(title)
 
 def create_appts():
     data = json.loads(request.data)
