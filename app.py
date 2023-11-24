@@ -28,6 +28,7 @@ def hello_world():
     soup = BeautifulSoup(doc, 'lxml')
     title = soup.find("meta", property="og:title")
     image = soup.find("meta", property="og:image")
+    output = {"title":title, "image":image}
     return(title)
 
 def create_appts():
