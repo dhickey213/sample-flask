@@ -7,6 +7,7 @@ import requests
 import time, math, datetime
 import calendar
 from bs4 import BeautifulSoup
+import lxml
 
 app = Flask(__name__)
 
