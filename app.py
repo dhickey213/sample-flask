@@ -6,6 +6,7 @@ import urllib.request
 import requests
 import time, math, datetime
 import calendar
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -70,7 +71,15 @@ def create_appts():
         time.sleep(.4)
     return (timeslotdictionary)
 
-
+def get_rich_links(url):
+    url = f'https://slate.com/news-and-politics/2023/11/cheetah-mating-terrorism-west-africa-counterterrorism-what.html'
+    page = requests.get(url)
+    doc = page.content
+    soup = BeautifulSoup(doc, 'lxml')
+    title = soup.find("meta", property="og:title")
+    image = soup.find("meta", property="og:image")
+    returndic = {title:image}
+    return(returndic)
     
 #    final_output = jsonify({"timeblocklength":blockduration, "minutes":blockminutes, "numberofslots":slotnumber})
 #    output = json.dumps(timeslotdictionary)  
