@@ -22,7 +22,8 @@ def get_prediction(url):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world(url):
-    page = requests.get(url)
+    url2 = f'https://slate.com/technology/2023/11/google-antitrust-search-monopoly-apple.html?pay=1700868262192&support_journalism=please'
+    page = requests.get(url2)
     doc = page.content
     soup = BeautifulSoup(doc, 'lxml')
     title = soup.find("meta", property="og:title")
