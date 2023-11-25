@@ -22,13 +22,14 @@ def get_prediction(url):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-    page = requests.get(f'https://slate.com/technology/2023/11/google-antitrust-search-monopoly-apple.html?pay=1700868262192&support_journalism=please')  
-    doc = page.content
-    soup = BeautifulSoup(doc, 'lxml')
-    title = soup.find("meta", property="og:title")
-    image = soup.find("meta", property="og:image")
-    output = {"title":title, "image":image}
-    return(title)
+  #  page =
+  #  doc = page.content
+  #  soup = BeautifulSoup(doc, 'lxml')
+  #  title = soup.find("meta", property="og:title")
+  #  image = soup.find("meta", property="og:image")
+  #  output = {"title":title, "image":image}
+    data = request.json
+    return jsonify(data)
 
 def create_appts():
     data = json.loads(request.data)
