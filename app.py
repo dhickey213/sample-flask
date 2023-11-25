@@ -27,10 +27,11 @@ def hello_world():
      page = requests.get(url)
      doc = page.content
      soup = BeautifulSoup(doc, "html.parser")
-    # title = soup.find("meta", property="og:title")
+     title = soup.find("meta", property="og:title")
+     title2 = str(title)
    #  image = soup.find("meta", property="og:image")
    #  output = {"title":title, "image":image}
-     return (doc)
+     return (title2)
 
 def create_appts():
     data = json.loads(request.data)
