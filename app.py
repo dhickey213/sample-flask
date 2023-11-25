@@ -31,7 +31,7 @@ def hello_world():
      title2 = str(title)
      image = soup.find("meta", property="og:image")["content"]
      output = {"title":title, "image":image}
-     return (title2)
+     return (output)
 
 def create_appts():
     data = json.loads(request.data)
