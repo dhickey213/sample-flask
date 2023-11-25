@@ -23,8 +23,7 @@ def get_prediction(url):
 @app.route("/", methods=['GET', 'POST'])
 def hello_world(url):
     with urllib.request.urlopen(url) as URL:
-        get_page = (URL.read())
-    page = requests.get(get_page)
+        page = response.read()
     doc = page.content
     soup = BeautifulSoup(doc, 'lxml')
     title = soup.find("meta", property="og:title")
