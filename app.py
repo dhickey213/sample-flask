@@ -29,8 +29,8 @@ def hello_world():
      soup = BeautifulSoup(doc, "html.parser")
      title = soup.find("meta", property="og:title")["content"]
      title2 = str(title)
-   #  image = soup.find("meta", property="og:image")
-   #  output = {"title":title, "image":image}
+     image = soup.find("meta", property="og:image")["content"]
+     output = {"title":title, "image":image}
      return (title2)
 
 def create_appts():
