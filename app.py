@@ -28,7 +28,6 @@ def hello_world():
      doc = page.content
      soup = BeautifulSoup(doc, "html.parser")
      title = soup.find("meta", property="og:title")["content"]
-     title2 = str(title)
      image = soup.find("meta", property="og:image")["content"]
      output = {"title":title, "image":image}
      return (output)
