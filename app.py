@@ -24,13 +24,13 @@ def get_prediction(url):
 def hello_world():
      data = json.loads(request.data)
      url = data['url']
-     page = requests.get(url)
-     doc = page.content
-     soup = BeautifulSoup(doc, 'lxml')
-     title = soup.find("meta", property="og:title")
-     image = soup.find("meta", property="og:image")
-     output = {"title":title, "image":image}
-     return (output)
+   #  page = requests.get(url)
+   #  doc = page.content
+   #  soup = BeautifulSoup(doc, 'lxml')
+    # title = soup.find("meta", property="og:title")
+   #  image = soup.find("meta", property="og:image")
+   #  output = {"title":title, "image":image}
+     return (url)
 
 def create_appts():
     data = json.loads(request.data)
