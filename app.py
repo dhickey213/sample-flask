@@ -28,8 +28,8 @@ def hello_world():
   #  title = soup.find("meta", property="og:title")
   #  image = soup.find("meta", property="og:image")
   #  output = {"title":title, "image":image}
-    data = request.json
-    return jsonify(data)
+    data = json.loads(request.data)
+    return (data)
 
 def create_appts():
     data = json.loads(request.data)
