@@ -26,7 +26,7 @@ def hello_world():
      url = data['url']
      page = requests.get(url)
      doc = page.content
-     soup = BeautifulSoup(doc, 'lxml')
+     soup = BeautifulSoup(doc, "html.parser")
     # title = soup.find("meta", property="og:title")
    #  image = soup.find("meta", property="og:image")
    #  output = {"title":title, "image":image}
