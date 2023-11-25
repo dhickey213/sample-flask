@@ -22,14 +22,15 @@ def get_prediction(url):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-  #  page =
-  #  doc = page.content
-  #  soup = BeautifulSoup(doc, 'lxml')
-  #  title = soup.find("meta", property="og:title")
-  #  image = soup.find("meta", property="og:image")
-  #  output = {"title":title, "image":image}
-    data = json.loads(request.data)
-    return (data)
+     data = json.loads(request.data)
+     url = data['url']
+     page = requests.get(url)
+     doc = page.content
+     soup = BeautifulSoup(doc, 'lxml')
+     title = soup.find("meta", property="og:title")
+     image = soup.find("meta", property="og:image")
+     output = {"title":title, "image":image}
+     return (output)
 
 def create_appts():
     data = json.loads(request.data)
