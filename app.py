@@ -22,6 +22,10 @@ def get_prediction(url):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
+    create_appts()
+
+
+def rich_article_links():
      data = json.loads(request.data)
      url = data['url']
      page = requests.get(url)
