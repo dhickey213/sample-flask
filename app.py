@@ -22,8 +22,21 @@ def get_prediction(url):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-    return create_appts()
-
+  #  return create_appts()
+    data = json.loads(request.data)
+    starttime = data['starttime'] 
+    endtime = data['endtime']
+    sessionduration = data['sessionduration']
+    timebtwsessions = data['timebtwsessions']
+    Mon = data['mon']
+    Tues = data['tues']
+    Wed = data['wed']
+    Thurs = data['thurs']
+    Fri = data['fri']
+    Sat = data['sat']
+    Sun = data['sun']
+    weekly = data['weekly']
+    endrepeat = data['endrepeat']
 
 def rich_article_links():
      data = json.loads(request.data)
@@ -42,6 +55,15 @@ def create_appts():
     endtime = data['endtime']
     sessionduration = data['sessionduration']
     timebtwsessions = data['timebtwsessions']
+    Mon = data['mon']
+    Tues = data['tues']
+    Wed = data['wed']
+    Thurs = data['thurs']
+    Fri = data['fri']
+    Sat = data['sat']
+    Sun = data['sun']
+    weekly = data['weekly']
+    endrepeat = data['endrepeat']
     
     blockduration = float(endtime)-float(starttime)
     blockminutes = blockduration/60
