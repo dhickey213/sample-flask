@@ -22,7 +22,7 @@ def get_prediction(url):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-  #  return create_appts()
+  
     data = json.loads(request.data)
     starttime = data['starttime'] 
     endtime = data['endtime']
@@ -37,6 +37,8 @@ def hello_world():
     Sun = data['sun']
     weekly = data['weekly']
     endrepeat = data['endrepeat']
+
+    return create_appts()
 
 def rich_article_links():
      data = json.loads(request.data)
