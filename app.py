@@ -76,11 +76,11 @@ def create_appts():
     params = {"appID":"9dd54d7a-440a-494f-803f-acede8dff51e", "collectionID":"t_27kkg53ncepfrjhmjgdmmcupb"}
 
     output = []
-    for key, value in timeslotdictionary.items():
-        payload = {"End Appointment": value, "Start Appointment":key, "Name":"string", "Available": "true"}
-        payloadjson = json.dumps(payload)
-        response = requests.post(url, params=params, data = payloadjson, headers=headers)
-        time.sleep(.4)
+#    for key, value in timeslotdictionary.items():
+#        payload = {"End Appointment": value, "Start Appointment":key, "Name":"string", "Available": "true"}
+#        payloadjson = json.dumps(payload)
+#        response = requests.post(url, params=params, data = payloadjson, headers=headers)
+#        time.sleep(.4)
     return (timeslotdictionary)
 
 
