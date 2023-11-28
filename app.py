@@ -22,24 +22,24 @@ def get_prediction(url):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-  
-    data = json.loads(request.data)
-    starttime = data['starttime'] 
-    endtime = data['endtime']
-    sessionduration = data['sessionduration']
-    timebtwsessions = data['timebtwsessions']
-    Mon = data['mon']
-    Tues = data['tues']
-    Wed = data['wed']
-    Thurs = data['thurs']
-    Fri = data['fri']
-    Sat = data['sat']
-    Sun = data['sun']
-    weekly = data['weekly']
-    endrepeat = data['endrepeat']
-
+    
     return create_appts()
 
+def add_repeat_time_slots(starttimelist, endtimelist):
+    newtime = starttimelist[0]
+    dayiterations = 0
+
+    while (newtime.weekday()!=0):
+        newtime +=datetime.timedelta(days=1)
+        dayiterations +=1
+    for i in range(len(starttimelist)):
+        newtime = starttimelist[i] + datetime.timedelta(days=dayiterations)
+        starttimelist.append(newtime)
+    for i in range(len(endtimelist():
+        newtime = endtimelist[i] + datetime.timedelta(days=dayiterations)
+        endtimelist.append(newtime)
+        
+    
 def rich_article_links():
      data = json.loads(request.data)
      url = data['url']
