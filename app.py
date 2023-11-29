@@ -26,7 +26,7 @@ def hello_world():
     if "url" in data:
      return rich_article_links(data['url'])
     else:
-    return create_appts()
+        return create_appts()
 
 def add_repeat_time_slots(starttimelist, endtimelist):
     newstart = starttimelist[0]
