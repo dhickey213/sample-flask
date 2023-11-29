@@ -22,27 +22,31 @@ def get_prediction(url):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
-    
+    data = json.loads(request.data)
+    if "url" in data:
+     return rich_article_links(data['url'])
+    else:
     return create_appts()
 
 def add_repeat_time_slots(starttimelist, endtimelist):
-    newtime = starttimelist[0]
+    newstart = starttimelist[0]
+    newend = endtimelist[0]
     dayiterations = 0
 
     while (newtime.weekday()!=0):
         newtime +=datetime.timedelta(days=1)
         dayiterations +=1
-    for i in range(len(starttimelist)):
-        newtime = starttimelist[i] + datetime.timedelta(days=dayiterations)
-        starttimelist.append(newtime)
-    for i in range(len(endtimelist():
-        newtime = endtimelist[i] + datetime.timedelta(days=dayiterations)
-        endtimelist.append(newtime)
         
+    for i in range(len(starttimelist)):
+        newstart = starttimelist[i] + datetime.timedelta(days=dayiterations)
+        starttimelist.append(newstart)
+        newend = endtimelist[i] + datetime.timedelta(days=dayiterations)
+        endtimelist.append(newend)
+        ]
     
-def rich_article_links():
-     data = json.loads(request.data)
-     url = data['url']
+def rich_article_links(url):
+     # data = json.loads(request.data)
+     # url = data['url']
      page = requests.get(url)
      doc = page.content
      soup = BeautifulSoup(doc, "html.parser")
@@ -57,13 +61,8 @@ def create_appts():
     endtime = data['endtime']
     sessionduration = data['sessionduration']
     timebtwsessions = data['timebtwsessions']
-    Mon = data['mon']
-    Tues = data['tues']
-    Wed = data['wed']
-    Thurs = data['thurs']
-    Fri = data['fri']
-    Sat = data['sat']
-    Sun = data['sun']
+    weekday_list = [data['mon'], data['tues'], data['wed'], data['thurs'], data['fri'], data['sat'], data['sun']]
+    
     weekly = data['weekly']
     endrepeat = data['endrepeat']
     
@@ -87,17 +86,16 @@ def create_appts():
     for i in range(len(starttimelist)):
         starttimelist[i] = datetime.datetime.fromtimestamp(int(starttimelist[i]))
         starttimelist[i] = starttimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
-        
-    for i in range(len(endtimelist)):
         endtimelist[i] = datetime.datetime.fromtimestamp(int(endtimelist[i]))
         endtimelist[i] = endtimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
-        
+
+    
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
     headers = {"Authorization": "Bearer TOKEN", "Content-Type": "application/json"}
 #    payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": "true"}
-    url = "https://api.adalo.com/v0/apps/9dd54d7a-440a-494f-803f-acede8dff51e/collections/t_27kkg53ncepfrjhmjgdmmcupb"
-    params = {"appID":"9dd54d7a-440a-494f-803f-acede8dff51e", "collectionID":"t_27kkg53ncepfrjhmjgdmmcupb"}
+    url = "https://api.adalo.com/..."
+    params = {"appID":"", "collectionID":""}
 
     output = []
 #    for key, value in timeslotdictionary.items():
