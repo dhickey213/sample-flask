@@ -42,7 +42,7 @@ def add_repeat_time_slots(starttimelist, endtimelist):
         starttimelist.append(newstart)
         newend = endtimelist[i] + datetime.timedelta(days=dayiterations)
         endtimelist.append(newend)
-        ]
+    return dayiterations
     
 def rich_article_links(url):
      # data = json.loads(request.data)
