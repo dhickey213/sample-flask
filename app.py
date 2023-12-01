@@ -26,7 +26,7 @@ def hello_world():
     if "url" in data:
      return rich_article_links(data['url'])
     else:
-        return (data)
+        return (create_appts(data))
 
 
 def rich_article_links(url):
