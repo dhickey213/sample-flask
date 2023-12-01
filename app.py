@@ -84,7 +84,7 @@ def create_appts(data):
     for i in range(6):
         next_day += datetime.timedelta(days=1)
         dayiterations +=1
-        if json_list[next_day.weekday()] == True:
+        if weekday_list[next_day.weekday()] == True:
             for i in range(len(starttimelist)):
                 newstart = starttimelist[i] + datetime.timedelta(days=dayiterations)
                 newstartlist.append(newstart)
