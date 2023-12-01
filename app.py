@@ -50,7 +50,10 @@ def create_appts(data):
 #    weekly = data['weekly']
 #    endrepeat = data['endrepeat']
 
- # Create day 1 time slots   
+    starttimezero = datetime.datetime.fromtimestamp(starttime)
+    endtimezero = datetime.datetime.fromtimestamp(endtime)
+ 
+    # Create day 1 time slots   
     blockduration = float(endtime)-float(starttime)
     blockminutes = blockduration/60
     slotnumber = math.floor(blockminutes/(float(sessionduration) + float(timebtwsessions)))
@@ -70,9 +73,7 @@ def create_appts(data):
 
     for i in range(len(starttimelist)):
         starttimelist[i] = datetime.datetime.fromtimestamp(int(starttimelist[i]))
-        starttimelist[i] = starttimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
         endtimelist[i] = datetime.datetime.fromtimestamp(int(endtimelist[i]))
-        endtimelist[i] = endtimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
         
 # Create Time Slots for Week 1
     newstart = starttimelist[0]
@@ -83,7 +84,7 @@ def create_appts(data):
     newendlist = []
 
     for i in range(6):
-        datetime(next_day) += datetime.timedelta(days=1)
+        next_day += datetime.timedelta(days=1)
         dayiterations +=1
         if json_list[next_day.weekday()] == True:
             for i in range(len(starttimelist)):
@@ -94,7 +95,10 @@ def create_appts(data):
 
     starttimelist.extend(newstartlist)
     endtimelist.extend(newendlist)
-
+    
+    for i in range(len(starttimelist)):
+        starttimelist[i] = starttimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
+        endtimelist[i] = endtimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
     
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
     
