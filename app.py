@@ -26,24 +26,9 @@ def hello_world():
     if "url" in data:
      return rich_article_links(data['url'])
     else:
-        return create_appts()
+        return create_appts(data)
 
-def add_repeat_time_slots(starttimelist, endtimelist):
-    newstart = starttimelist[0]
-    newend = endtimelist[0]
-    dayiterations = 0
 
-    while (newtime.weekday()!=0):
-        newtime +=datetime.timedelta(days=1)
-        dayiterations +=1
-        
-    for i in range(len(starttimelist)):
-        newstart = starttimelist[i] + datetime.timedelta(days=dayiterations)
-        starttimelist.append(newstart)
-        newend = endtimelist[i] + datetime.timedelta(days=dayiterations)
-        endtimelist.append(newend)
-    return dayiterations
-    
 def rich_article_links(url):
      # data = json.loads(request.data)
      # url = data['url']
@@ -56,16 +41,16 @@ def rich_article_links(url):
      return (output)
 
 def create_appts():
-    data = json.loads(request.data)
+    #data = json.loads(request.data)
     starttime = data['starttime'] 
     endtime = data['endtime']
     sessionduration = data['sessionduration']
     timebtwsessions = data['timebtwsessions']
     weekday_list = [data['mon'], data['tues'], data['wed'], data['thurs'], data['fri'], data['sat'], data['sun']]
-    
-    weekly = data['weekly']
-    endrepeat = data['endrepeat']
-    
+#    weekly = data['weekly']
+#    endrepeat = data['endrepeat']
+
+ # Create day 1 time slots   
     blockduration = float(endtime)-float(starttime)
     blockminutes = blockduration/60
     slotnumber = math.floor(blockminutes/(float(sessionduration) + float(timebtwsessions)))
@@ -88,6 +73,27 @@ def create_appts():
         starttimelist[i] = starttimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
         endtimelist[i] = datetime.datetime.fromtimestamp(int(endtimelist[i]))
         endtimelist[i] = endtimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
+        
+# Create Time Slots for Week 1
+    newstart = starttimelist[0]
+    newend = endtimelist[0]
+    next_day = starttimelist[0]
+    dayiterations = 0
+    newstartlist = []
+    newendlist = []
+
+    for i in range(6):
+        next_day += datetime.timedelta(days=1)
+        dayiterations +=1
+        if json_list[next_day.weekday()] == True:
+            for i in range(len(starttimelist)):
+                newstart = starttimelist[i] + datetime.timedelta(days=dayiterations)
+                newstartlist.append(newstart)
+                newend = endtimelist[i] + datetime.timedelta(days=dayiterations)
+                newendlist.append(newend)
+
+    starttimelist.extend(newstartlist)
+    endtimelist.extend(newendlist)
 
     
     timeslotdictionary = dict(zip(starttimelist, endtimelist))
