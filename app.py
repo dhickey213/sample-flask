@@ -50,9 +50,7 @@ def create_appts(data):
 #    weekly = data['weekly']
 #    endrepeat = data['endrepeat']
 
-    starttimezero = datetime.datetime.fromtimestamp(starttime)
-    endtimezero = datetime.datetime.fromtimestamp(endtime)
- 
+
     # Create day 1 time slots   
     blockduration = float(endtime)-float(starttime)
     blockminutes = blockduration/60
