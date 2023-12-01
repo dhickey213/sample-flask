@@ -40,7 +40,7 @@ def rich_article_links(url):
      output = {"title":title, "image":image}
      return (output)
 
-def create_appts():
+def create_appts(data):
     #data = json.loads(request.data)
     starttime = data['starttime'] 
     endtime = data['endtime']
