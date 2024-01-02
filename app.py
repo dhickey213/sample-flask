@@ -91,6 +91,7 @@ def create_appts(data):
                 newend = endtimelist[i] + datetime.timedelta(days=dayiterations)
                 newendlist.append(newend)
 
+#Add week 1 slots to day 1 slots
     starttimelist.extend(newstartlist)
     endtimelist.extend(newendlist)
     
