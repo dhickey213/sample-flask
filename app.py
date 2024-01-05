@@ -46,7 +46,7 @@ def create_appts(data):
     endtime = data['endtime']
     sessionduration = data['sessionduration']
     timebtwsessions = data['timebtwsessions']
-    weekday_list = [data['mon'], data['tues'], data['wed'], data['thurs'], data['fri'], data['sat'], data['sun']]
+#    weekday_list = [data['mon'], data['tues'], data['wed'], data['thurs'], data['fri'], data['sat'], data['sun']]
 #    weekly = data['weekly']
 #    endrepeat = data['endrepeat']
 
