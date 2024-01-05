@@ -94,6 +94,9 @@ def create_appts(data):
 #Add week 1 slots to day 1 slots
     starttimelist.extend(newstartlist)
     endtimelist.extend(newendlist)
+
+#Add Repeat Weekly dates
+    
     
     for i in range(len(starttimelist)):
         starttimelist[i] = starttimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
