@@ -106,8 +106,8 @@ def create_appts(data):
         for i in range(len(starttimelist)):
             startweekly = starttimelist[i] + datetime.timedelta(weeks=1)
             endweekly = endtimelist[i] + datetime.timedelta(weeks=1)
-            startweeklylist[i] = startweekly
-            endweeklylist[i] = endweekly
+            startweeklylist.append(startweekly)
+            endweeklylist.append(endweekly)
 
     starttimelist.extend(startweeklylist)
     endtimelist.extend(endweeklylist)
