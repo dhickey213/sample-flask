@@ -47,8 +47,8 @@ def create_appts(data):
     sessionduration = data['sessionduration']
     timebtwsessions = data['timebtwsessions']
     weekday_list = [data['mon'], data['tues'], data['wed'], data['thurs'], data['fri'], data['sat'], data['sun']]
-#    weekly = data['weekly']
-#    endrepeat = data['endrepeat']
+    weekly = data['weekly']
+    endrepeat = data['endrepeat']
 
 
     # Create day 1 time slots   
@@ -102,7 +102,15 @@ def create_appts(data):
     startweeklylist = []
     endweeklylist = []
     
-    
+    while startweekly <= endtime:
+        for i in range(len(starttimelist)):
+            startweekly = starttimelist[i] + datetime.timedelta(weeks=1)
+            endweekly = endtimelist[i] + datetime.timedelta(weeks=1)
+            startweeklylist[i] = startweekly
+            endweeklylist[i] = endweekly
+
+    starttimelist.extend(startweeklylist)
+    endtimelist.extend(endweeklylist)
     
     for i in range(len(starttimelist)):
         starttimelist[i] = starttimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
