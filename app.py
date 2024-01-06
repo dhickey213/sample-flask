@@ -96,13 +96,13 @@ def create_appts(data):
     endtimelist.extend(newendlist)
 
 #Add Repeat Weekly dates
-    endtime = datetime.datetime.fromtimestamp((int(endtime))-604800)
+    endrepeat = datetime.datetime.fromtimestamp((int(endrepeat))-604800)
     startweekly = starttimelist[0]
     endweekly = endtimelist[0]
     startweeklylist = []
     endweeklylist = []
     
-    while startweekly <= endtime:
+    while startweekly <= endrepeat:
         for i in range(len(starttimelist)):
             startweekly = starttimelist[i] + datetime.timedelta(weeks=1)
             endweekly = endtimelist[i] + datetime.timedelta(weeks=1)
