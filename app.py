@@ -45,15 +45,26 @@ def rich_article_links(url):
 def single_appt_repeat(data):
     weekday_list = [data['mon'], data['tues'], data['wed'], data['thurs'], data['fri'], data['sat'], data['sun']]
     single_repeat_weekly = data['single_repeat_weekly']
-    starttime = data['starttime'] 
-    endtime = data['endtime']
+    starttime = datetime.dateime.fromtimestamp(int(data['starttime']))
+    endtime = datetime.datetime.fromtimestamp(int(data['endtime']))
     endrepeat = data['endrepeat']
 
     dayiterations = 0
-    newstartlist = []
-    newendlist = []
+    newstartlist = [starttime]
+    newendlist = [endtime]
+    nextday = starttime
 
-    return (single_repeat_weekly)
+    for i in range(6):
+        nextday += datetime.timedelta(days=1)
+        dayiterations +=1
+        if weekday_list[next_day.weekday()] == True:
+            starttime = starttime + datetime.timedelta(days=dayiterations)
+            endtime = endtime + datetime.timedelta(days=dayiterations)
+            newstartlist.append(starttime)
+            newendlist.append(endtime)
+            
+    single_repeat_week_dict = dict(zip(startlist, endlist))
+    return (single_repeat_week_dict)
     
 
 def create_appts(data):
