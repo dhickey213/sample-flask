@@ -45,7 +45,7 @@ def rich_article_links(url):
 def single_appt_repeat(data):
     weekday_list = [data['mon'], data['tues'], data['wed'], data['thurs'], data['fri'], data['sat'], data['sun']]
     single_repeat_weekly = data['single_repeat_weekly']
-    starttime = datetime.dateime.fromtimestamp(int(data['starttime']))
+    starttime = datetime.datetime.fromtimestamp(int(data['starttime']))
     endtime = datetime.datetime.fromtimestamp(int(data['endtime']))
     endrepeat = data['endrepeat']
 
