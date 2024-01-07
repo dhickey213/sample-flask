@@ -25,7 +25,9 @@ def hello_world():
     data = json.loads(request.data)
     if "url" in data:
      return rich_article_links(data['url'])
-    else:
+    else if "single_repeat_weekly" in data:
+        return single_appt_repeat(data)
+    else: 
         return (create_appts(data))
 
 
@@ -39,6 +41,16 @@ def rich_article_links(url):
      image = soup.find("meta", property="og:image")["content"]
      output = {"title":title, "image":image}
      return (output)
+
+def single_appt_repeat(data):
+    weekday_list = [data['mon'], data['tues'], data['wed'], data['thurs'], data['fri'], data['sat'], data['sun']]
+    single_repeat_weekly = data['single_repeat_weekly']
+    starttime = data['starttime'] 
+    endtime = data['endtime']
+    endrepeat = data['endrepeat']
+
+    return (single_repeat_weekly)
+    
 
 def create_appts(data):
     #data = json.loads(request.data)
