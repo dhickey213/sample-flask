@@ -25,7 +25,7 @@ def hello_world():
     data = json.loads(request.data)
     if "url" in data:
      return rich_article_links(data['url'])
-    elif: "single_repeat_weekly" in data:
+    elif "single_repeat_weekly" in data:
         return single_appt_repeat(data)
     else: 
         return (create_appts(data))
