@@ -57,7 +57,7 @@ def single_appt_repeat(data):
     for i in range(6):
         nextday += datetime.timedelta(days=1)
         dayiterations +=1
-        if weekday_list[next_day.weekday()] == True:
+        if weekday_list[nextday.weekday()] == True:
             starttime = starttime + datetime.timedelta(days=dayiterations)
             endtime = endtime + datetime.timedelta(days=dayiterations)
             newstartlist.append(starttime)
