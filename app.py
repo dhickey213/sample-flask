@@ -49,6 +49,10 @@ def single_appt_repeat(data):
     endtime = data['endtime']
     endrepeat = data['endrepeat']
 
+    dayiterations = 0
+    newstartlist = []
+    newendlist = []
+
     return (single_repeat_weekly)
     
 
