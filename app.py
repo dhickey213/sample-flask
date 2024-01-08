@@ -144,6 +144,7 @@ def create_appts(data):
     endweekly = endtimelist[0]
     startweeklylist = []
     endweeklylist = []
+    weeklyloop = 0
     
     while startweekly <= endrepeat:
         for i in range(len(starttimelist)):
@@ -151,6 +152,7 @@ def create_appts(data):
             endweekly = endtimelist[i] + datetime.timedelta(weeks=1)
             startweeklylist.append(startweekly)
             endweeklylist.append(endweekly)
+        weeklyloop +=1
 
     starttimelist.extend(startweeklylist)
     endtimelist.extend(endweeklylist)
