@@ -62,7 +62,11 @@ def single_appt_repeat(data):
             endtime = endtime + datetime.timedelta(days=dayiterations)
             newstartlist.append(starttime)
             newendlist.append(endtime)
-            
+    
+    for i in range(len(newstartlist)):
+        newstartlist[i] = newstartlist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
+        newendlist[i] = newendlist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
+
     single_repeat_week_dict = dict(zip(newstartlist, newendlist))
     return (single_repeat_week_dict)
     
