@@ -63,7 +63,7 @@ def single_appt_repeat(data):
             newstartlist.append(starttime)
             newendlist.append(endtime)
             
-    single_repeat_week_dict = dict(zip(startlist, endlist))
+    single_repeat_week_dict = dict(zip(newstartlist, newendlist))
     return (single_repeat_week_dict)
     
 
