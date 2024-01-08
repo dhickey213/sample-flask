@@ -50,8 +50,8 @@ def single_appt_repeat(data):
     endrepeat = datetime.datetime.fromtimestamp((int(data['endrepeat']))-604800)
     
     dayiterations = 0
-    newstartlist = [starttime]
-    newendlist = [endtime]
+    newstartlist = []
+    newendlist = []
     nextstartday = starttime
     repeatstart = starttime
     repeatend = endtime
@@ -66,10 +66,9 @@ def single_appt_repeat(data):
             newendlist.append(nextendday)
 
 #repeat weekly
-    n = len(newstartlist)
     if single_repeat_weekly == True:
         while repeatstart <= endrepeat:
-            for i in range(1, n):
+            for i in range(len(newstartlist)):
                 repeatstart = newstartlist[i] + datetime.timedelta(weeks=1)
                 repeatend = newendlist[i] + datetime.timedelta(weeks = 1)
                 newstartlist.append(repeatstart)
