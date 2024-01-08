@@ -139,23 +139,24 @@ def create_appts(data):
     endtimelist.extend(newendlist)
 
 #Add Repeat Weekly dates
-    endrepeat = datetime.datetime.fromtimestamp((int(endrepeat))-604800)
-    startweekly = starttimelist[0]
-    endweekly = endtimelist[0]
-    startweeklylist = []
-    endweeklylist = []
-    weeklyloop = 0
+    if weekly == True:
+        endrepeat = datetime.datetime.fromtimestamp((int(endrepeat))-604800)
+        startweekly = starttimelist[0]
+        endweekly = endtimelist[0]
+        startweeklylist = []
+        endweeklylist = []
+        weeklyloop = 0
     
-    while startweekly <= endrepeat and weeklyloop<9:
-        for i in range(len(starttimelist)):
-            startweekly = starttimelist[i] + datetime.timedelta(weeks=1)
-            endweekly = endtimelist[i] + datetime.timedelta(weeks=1)
-            startweeklylist.append(startweekly)
-            endweeklylist.append(endweekly)
-        weeklyloop +=1
+        while startweekly <= endrepeat and weeklyloop<9:
+            for i in range(len(starttimelist)):
+                startweekly = starttimelist[i] + datetime.timedelta(weeks=1)
+                endweekly = endtimelist[i] + datetime.timedelta(weeks=1)
+                startweeklylist.append(startweekly)
+                endweeklylist.append(endweekly)
+            weeklyloop +=1
 
-    starttimelist.extend(startweeklylist)
-    endtimelist.extend(endweeklylist)
+        starttimelist.extend(startweeklylist)
+        endtimelist.extend(endweeklylist)
     
     for i in range(len(starttimelist)):
         starttimelist[i] = starttimelist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
