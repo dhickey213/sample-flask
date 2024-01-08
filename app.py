@@ -67,7 +67,7 @@ def single_appt_repeat(data):
 
 #repeat weekly
     if single_repeat_weekly == True:
-        while repeatstart <= endrepeat:
+        while repeatstart < endrepeat:
             for i in range(len(newstartlist)):
                 repeatstart = newstartlist[i] + datetime.timedelta(weeks=1)
                 repeatend = newendlist[i] + datetime.timedelta(weeks = 1)
