@@ -47,12 +47,14 @@ def single_appt_repeat(data):
     single_repeat_weekly = data['single_repeat_weekly']
     starttime = datetime.datetime.fromtimestamp(int(data['starttime']))
     endtime = datetime.datetime.fromtimestamp(int(data['endtime']))
-    endrepeat = data['endrepeat']
-
+    endrepeat = datetime.datetime.fromtimestamp((int(data['endrepeat']))-604800)
+    
     dayiterations = 0
     newstartlist = [starttime]
     newendlist = [endtime]
     nextstartday = starttime
+    repeatstart = starttime
+    repeatend = endtime
     nextendday = endtime
 
     for i in range(6):
@@ -60,11 +62,18 @@ def single_appt_repeat(data):
         nextendday += datetime.timedelta(days=1)
         dayiterations +=1
         if weekday_list[nextstartday.weekday()] == True:
-           # starttime = starttime + datetime.timedelta(days=dayiterations)
-           # endtime = endtime + datetime.timedelta(days=dayiterations)
             newstartlist.append(nextstartday)
             newendlist.append(nextendday)
-    
+
+#repeat weekly
+    if single_repeat_weekly == True:
+        while repeatstart <= endrepeat:
+            for i in range(len(newstartlistlist)):
+                repeatstart = newstartlist[i] + datetime.timedelta(weeks=1)
+                repeatend = newendlist[i] + datetime.timedelta(weeks = 1)
+                newstartlist.append(repeatstart)
+                newendlist.append(repeatend)
+        
     for i in range(len(newstartlist)):
         newstartlist[i] = newstartlist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
         newendlist[i] = newendlist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
