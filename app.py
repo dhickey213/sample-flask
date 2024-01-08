@@ -52,21 +52,24 @@ def single_appt_repeat(data):
     dayiterations = 0
     newstartlist = [starttime]
     newendlist = [endtime]
-    nextday = starttime
+    nextstartday = starttime
+    nextendday = endtime
 
     for i in range(6):
-        nextday += datetime.timedelta(days=1)
+        nextstartday += datetime.timedelta(days=1)
+        nextendday += datetime.timedelta(days=1)
         dayiterations +=1
         if weekday_list[nextday.weekday()] == True:
-            starttime = starttime + datetime.timedelta(days=dayiterations)
-            endtime = endtime + datetime.timedelta(days=dayiterations)
-            newstartlist.append(starttime)
-            newendlist.append(endtime)
+           # starttime = starttime + datetime.timedelta(days=dayiterations)
+           # endtime = endtime + datetime.timedelta(days=dayiterations)
+            newstartlist.append(nextstartday)
+            newendlist.append(nextendday)
     
     for i in range(len(newstartlist)):
         newstartlist[i] = newstartlist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
         newendlist[i] = newendlist[i].strftime('20%y-%m-%dT%H:%M:%SZ')
 
+    
     single_repeat_week_dict = dict(zip(newstartlist, newendlist))
     return (single_repeat_week_dict)
     
