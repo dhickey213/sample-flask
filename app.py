@@ -82,6 +82,24 @@ def single_appt_repeat(data):
 
     
     single_repeat_week_dict = dict(zip(newstartlist, newendlist))
+    
+ #app vars   
+    BAT = os.environ['token']
+    app_url = os.environ['app_url']
+    appID = os.environ['appID']
+    collectionID = os.environ['collectionID']
+    
+     headers = {"Authorization": , "Content-Type": "application/json"}
+#    payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": "true"}
+    url = "https://api.adalo.com/..."
+    params = {"appID":"", "collectionID":""}
+
+    output = []
+#    for key, value in timeslotdictionary.items():
+#        payload = {"End Appointment": value, "Start Appointment":key, "Name":"string", "Available": "true"}
+#        payloadjson = json.dumps(payload)
+#        response = requests.post(url, params=params, data = payloadjson, headers=headers)
+#        time.sleep(.4)
     return (single_repeat_week_dict)
     
 
