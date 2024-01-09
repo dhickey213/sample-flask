@@ -89,8 +89,8 @@ def single_appt_repeat(data):
     appID = os.environ['appID']
     collectionID = os.environ['collectionID']
     
-     headers = {"Authorization": , "Content-Type": "application/json"}
-#    payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": "true"}
+    headers = {"Authorization": , "Content-Type": "application/json"}
+#   payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": "true"}
     url = "https://api.adalo.com/..."
     params = {"appID":"", "collectionID":""}
 
