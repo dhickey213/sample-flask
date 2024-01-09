@@ -84,7 +84,7 @@ def single_appt_repeat(data):
     single_repeat_week_dict = dict(zip(newstartlist, newendlist))
     
  #app vars   
-    BAT = os.environ['token']
+    a_token = os.environ['token']
     app_url = os.environ['app_url']
     appID = os.environ['appID']
     collectionID = os.environ['collectionID']
