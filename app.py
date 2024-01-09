@@ -92,10 +92,10 @@ def single_appt_repeat(data):
     headers = {"Authorization": "Bearer" + a_token, "Content-Type": "application/json"}
 #   payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": "true"}
 #    url = "https://api.adalo.com/..."
-#    params = {"appID":"", "collectionID":""}
+    params = {"appID":appID, "collectionID":collectionID}
 
 #    output = []
-     for key, value in timeslotdictionary.items():
+    for key, value in timeslotdictionary.items():
         payload = {"End Appointment": value, "Start Appointment":key, "Name":"string", "Available": "true"}
         payloadjson = json.dumps(payload)
         response = requests.post(app_url, params=params, data = payloadjson, headers=headers)
