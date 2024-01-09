@@ -84,12 +84,12 @@ def single_appt_repeat(data):
     single_repeat_week_dict = dict(zip(newstartlist, newendlist))
     
  #app vars   
-    a_token = os.environ['token']
+    a_token = "Bearer " + os.environ['token']
     app_url = os.environ['app_url']
     appID = os.environ['appID']
     collectionID = os.environ['collectionID']
     
-    headers = {"Authorization": "Bearer" + a_token, "Content-Type": "application/json"}
+    headers = {"Authorization": a_token, "Content-Type": "application/json"}
 #   payload = {"End Appointment": "1702511107", "Start Time": "1702507507", "Available": "true"}
 #    url = "https://api.adalo.com/..."
     params = {"appID":appID, "collectionID":collectionID}
