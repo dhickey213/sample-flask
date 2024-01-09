@@ -95,7 +95,7 @@ def single_appt_repeat(data):
     params = {"appID":appID, "collectionID":collectionID}
 
 #    output = []
-    for key, value in timeslotdictionary.items():
+    for key, value in single_repeat_week_dict.items():
         payload = {"End Appointment": value, "Start Appointment":key, "Name":"string", "Available": "true"}
         payloadjson = json.dumps(payload)
         response = requests.post(app_url, params=params, data = payloadjson, headers=headers)
