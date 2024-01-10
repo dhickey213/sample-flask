@@ -100,7 +100,9 @@ def single_appt_repeat(data):
         payloadjson = json.dumps(payload)
         response = requests.post(app_url, params=params, data = payloadjson, headers=headers)
         time.sleep(.2)
-    return (single_repeat_week_dict)
+
+    output = jsonify ({"starttime": str(data['starttime']), "endtime": str(data['endtime'])})
+    return (output)
     
 
 def create_appts(data):
