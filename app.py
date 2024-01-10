@@ -47,14 +47,14 @@ def rich_article_links(url):
 def single_appt_repeat(data):
     weekday_list = [data['mon'], data['tues'], data['wed'], data['thurs'], data['fri'], data['sat'], data['sun']]
     single_repeat_weekly = data['single_repeat_weekly']
-    starttime = data['starttime'].replace("T","")
+    starttime = data['starttime'].replace("T"," ")
     starttime = starttime.replace("Z","")
-    starttime = datetime.datetime.strptime(starttime, '%Y-%d-%m-%H:%M:%S')
+    starttime = datetime.datetime.strptime(starttime, '%Y-%m-%d %H:%M:%S')
 #starttime = datetime.datetime.fromtimestamp(int(data['starttime']))
 #endtime = datetime.datetime.fromtimestamp(int(data['endtime']))
-    endtimetime = data['endtime'].replace("T","")
+    endtimetime = data['endtime'].replace("T"," ")
     endtime = endtime.replace("Z","")
-    endtime = datetime.datetime.strptime(endtime, '%Y-%d-%m-%H:%M:%S')
+    endtime = datetime.datetime.strptime(endtime, '%Y-%d-%m %H:%M:%S')
     endrepeat = datetime.datetime.fromtimestamp((int(data['endrepeat']))-604800)
     
     dayiterations = 0
