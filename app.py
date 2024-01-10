@@ -99,7 +99,7 @@ def single_appt_repeat(data):
         payload = {"End Appointment": value, "Start Appointment":key, "Name":"", "Available": "true"}
         payloadjson = json.dumps(payload)
         response = requests.post(app_url, params=params, data = payloadjson, headers=headers)
-        time.sleep(.25)
+        time.sleep(.2)
     return (single_repeat_week_dict)
     
 
