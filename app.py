@@ -100,7 +100,7 @@ def single_appt_repeat(data):
         payloadjson = json.dumps(payload)
         response = requests.post(app_url, params=params, data = payloadjson, headers=headers)
         time.sleep(.2)
-    return (data['starttime'])
+    return ((str(data['starttime'])))
     
 
 def create_appts(data):
