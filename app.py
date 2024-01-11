@@ -108,7 +108,7 @@ def single_appt_repeat(data):
         time.sleep(.2)
 
     output = jsonify ({"starttime": str(data['starttime']), "endtime": str(data['endtime'])})
-    return (single_repeat_dict)
+    return (single_repeat_week_dict)
     
 
 def create_appts(data):
