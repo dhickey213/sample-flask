@@ -50,12 +50,12 @@ def single_appt_repeat(data):
   #  starttime = data['starttime'].replace("T"," ")
   #  starttime = starttime.replace("Z","")
   #  starttime = datetime.datetime.strptime(starttime, '%Y-%m-%d %H:%M:%S')
-    starttime = datetime.datetime.fromtimestamp(int(data['starttime']))
-    endtime = datetime.datetime.fromtimestamp(int(data['endtime']))
+    starttime = datetime.datetime.fromtimestamp((int(data['starttime'])*86400))
+    endtime = datetime.datetime.fromtimestamp((int(data['endtime'])*86400))
   #  endtime = data['endtime'].replace("T"," ")
   #  endtime = endtime.replace("Z","")
   #  endtime = datetime.datetime.strptime(endtime, '%Y-%d-%m %H:%M:%S')
-    endrepeat = datetime.datetime.fromtimestamp((int(data['endrepeat']))-604800)
+    endrepeat = datetime.datetime.fromtimestamp(((int(data['endrepeat']))*86400)-604800)
     
     dayiterations = 0
     newstartlist = []
