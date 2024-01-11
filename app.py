@@ -50,12 +50,12 @@ def single_appt_repeat(data):
   #  starttime = data['starttime'].replace("T"," ")
   #  starttime = starttime.replace("Z","")
   #  starttime = datetime.datetime.strptime(starttime, '%Y-%m-%d %H:%M:%S')
-    starttime = datetime.datetime.fromtimestamp((int(data['starttime'])*86400))
-    endtime = datetime.datetime.fromtimestamp((int(data['endtime'])*86400))
+    starttime = datetime.datetime.fromtimestamp((float(data['starttime'])*86400))
+    endtime = datetime.datetime.fromtimestamp((float(data['endtime'])*86400))
   #  endtime = data['endtime'].replace("T"," ")
   #  endtime = endtime.replace("Z","")
   #  endtime = datetime.datetime.strptime(endtime, '%Y-%d-%m %H:%M:%S')
-    endrepeat = datetime.datetime.fromtimestamp(((int(data['endrepeat']))*86400)-604800)
+    endrepeat = datetime.datetime.fromtimestamp(((float(data['endrepeat']))*86400)-604800)
     
     dayiterations = 0
     newstartlist = []
@@ -169,7 +169,7 @@ def create_appts(data):
 
 #Add Repeat Weekly dates
     if weekly == True:
-        endrepeat = datetime.datetime.fromtimestamp((int(endrepeat))-604800)
+        endrepeat = datetime.datetime.fromtimestamp((float(endrepeat))-604800)
         startweekly = starttimelist[0]
         endweekly = endtimelist[0]
         startweeklylist = []
