@@ -41,7 +41,8 @@ def rich_article_links(url):
      soup = BeautifulSoup(doc, "html.parser")
      title = soup.find("meta", property="og:title")["content"]
      image = soup.find("meta", property="og:image")["content"]
-     output = {"title":title, "image":image}
+     site_name = soup.find("meta", property="og:site_name")["content"]
+     output = {"title":title, "image":image, "site_name":site_name}
      return (output)
 
 def single_appt_repeat(data):
