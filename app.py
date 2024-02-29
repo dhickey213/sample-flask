@@ -34,7 +34,6 @@ def hello_world():
         return (testing(data))
 
 def testing(data):
-    data = requests.get(data)
     starttime = data['startTime']
     output = {"startTime":starttime}
     return (output)
