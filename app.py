@@ -32,7 +32,12 @@ def hello_world():
     else: 
         return (create_appts(data))
 
-
+def testing(data):
+    data = requests.get(data)
+    starttime = data['startTime']
+    output = {"startTime":starttime}
+    return (output)
+    
 def rich_article_links(url):
      # data = json.loads(request.data)
      # url = data['url']
