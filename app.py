@@ -30,7 +30,8 @@ def hello_world():
     elif "single_repeat_weekly" in data:
         return single_appt_repeat(data)
     else: 
-        return (create_appts(data))
+        #return (create_appts(data))
+        return (testing(data))
 
 def testing(data):
     data = requests.get(data)
